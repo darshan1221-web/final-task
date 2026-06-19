@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherScope – Real-Time Weather Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <!-- ── Header ─────────────────────────────────────── -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">🌤</div>
+        <div class="logo-text">Weather<span>Scope</span></div>
+      </div>
+      <div class="header-right">
+        <div id="live-clock">Loading...</div>
+        <button class="theme-btn" id="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- ── Search ─────────────────────────────────────── -->
+    <section class="search-section" aria-label="City search">
+      <div class="search-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Search any city… e.g. Mumbai, London, Tokyo"
+            autocomplete="off"
+            aria-label="Enter city name"
+          />
+        </div>
+        <button class="search-btn" id="search-btn" aria-label="Search weather">
+          <span>Search</span> ⚡
+        </button>
+      </div>
+      <div class="recent-section" id="recent-section" aria-label="Recent searches" role="list"></div>
+    </section>
+
+    <!-- ── Status Messages ────────────────────────────── -->
+    <div id="status-message" role="alert" aria-live="polite"></div>
+
+    <!-- ── Placeholder ───────────────────────────────── -->
+    <div id="placeholder">
+      <div class="placeholder-icon">🌍</div>
+      <h3>Search a city to get started</h3>
+      <p>Enter any city name above to see live weather data</p>
+    </div>
+
+    <!-- ── Weather Content ───────────────────────────── -->
+    <div id="weather-content" aria-live="polite">
+
+      <!-- Main Card -->
+      <div class="main-card">
+        <div class="city-header">
+          <div class="city-info">
+            <h2 id="city-name">—</h2>
+            <span class="country-tag" id="country-tag">—</span>
+          </div>
+          <div class="weather-icon-wrap">
+            <img id="weather-icon" src="" alt="Weather icon" />
+            <div class="condition-label" id="condition-label">—</div>
+          </div>
+        </div>
+
+        <!-- Temperature -->
+        <div class="temp-display">
+          <div class="temp-main" id="temp-main">—</div>
+          <div>
+            <div class="temp-unit-toggle">
+              <button class="unit-btn active" id="btn-c" aria-pressed="true">°C</button>
+              <button class="unit-btn" id="btn-f" aria-pressed="false">°F</button>
+            </div>
+            <div class="feels-like" id="feels-like">Feels like —</div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-icon">💧</span>
+            <span class="stat-label">Humidity</span>
+            <span class="stat-value" id="stat-humidity">—</span>
+            <div class="stat-bar"><div class="stat-bar-fill" id="bar-humidity" style="width:0%"></div></div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🌬️</span>
+            <span class="stat-label">Wind Speed</span>
+            <span class="stat-value" id="stat-wind">—</span>
+            <div class="stat-bar"><div class="stat-bar-fill" id="bar-wind" style="width:0%"></div></div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">👁️</span>
+            <span class="stat-label">Visibility</span>
+            <span class="stat-value" id="stat-visibility">—</span>
+            <div class="stat-bar"><div class="stat-bar-fill" id="bar-visibility" style="width:0%"></div></div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🌡️</span>
+            <span class="stat-label">Pressure</span>
+            <span class="stat-value" id="stat-pressure">—</span>
+            <div class="stat-bar"><div class="stat-bar-fill" id="bar-pressure" style="width:0%"></div></div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🌅</span>
+            <span class="stat-label">Sunrise</span>
+            <span class="stat-value" id="stat-sunrise">—</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🌇</span>
+            <span class="stat-label">Sunset</span>
+            <span class="stat-value" id="stat-sunset">—</span>
+          </div>
+        </div>
+
+        <!-- Extra pills -->
+        <div class="info-row">
+          <div class="info-pill">☁️ Cloud Cover: <span id="pill-cloud">—</span></div>
+          <div class="info-pill">🔆 UV Index: <span id="pill-uv">—</span></div>
+          <div class="info-pill">📍 Coords: <span id="pill-coords">—</span></div>
+        </div>
+      </div>
+
+    </div><!-- /weather-content -->
+
+    <footer>
+      WeatherScope &nbsp;|&nbsp; Data by <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeatherMap</a>
+      &nbsp;|&nbsp; Built with HTML5 · CSS3 · Vanilla JS
+    </footer>
+
+  </div><!-- /app-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
